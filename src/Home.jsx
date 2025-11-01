@@ -14,7 +14,7 @@ const Home = () => {
         </div>
 
         {/* Posts */}
-        <div className="col-span-4 md:col-span-3 lg:col-span-2">
+        <div className="col-span-4 md:col-span-3 lg:col-span-2 p-3 rounded-md">
           <Posts />
         </div>
 
