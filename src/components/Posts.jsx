@@ -5,7 +5,7 @@ import { GoDotFill } from "react-icons/go";
 const Posts = () => {
   return (
     <>
-    <div className="container rounded-md shadow-lg w-[80%] mt-10 ">
+    <div className="container rounded-md shadow-lg w-[80%] mt-10 mx-auto">
       <div className="flex justify-between p-2 items-center">
         <div className="flex p-2 gap-2 items-center">
           <img className='w-[35px] h-[35px] cursor-pointer' 
