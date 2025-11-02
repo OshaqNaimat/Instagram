@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { BsZoomIn } from "react-icons/bs";
-
+import Slider from '@mui/material/Slider';
 
 const PostModal = () => {
      const [imagePreview,setImagePreview] = useState(null)
      const [zoomin,setZoomIn] = useState(false)
+     const [range,setRange] = useState(100)
 
      const handleImageViewer = (e)=>{
         let post = e.target.files[0]
@@ -24,15 +25,31 @@ const PostModal = () => {
               <h3 className='font-semibold text-center p-2'>Create a post</h3>
                       <p className='cursor-pointer text-purple-600'>Next</p>
                     </div>
-              <img src={imagePreview} className='aspect-square  w-full object-cover'/>
                 <div onClick={()=>setZoomIn(true)} className={`bg-black/50 h-7 w-7 flex items-center justify-center 
-                absolute bottom-3 left-3 rounded-full ${zoomin ? 'bg-white text-black' : 'bg-black text-white'}`}>
+                absolute bottom-3 left-3 z-[400] rounded-full ${zoomin ? 'bg-white text-black' : 'bg-black text-white'}`}>
               <BsZoomIn />
 
-              <div className="bg-black/50 px-2 py-1 absolute rounded-lg translate-x-1/2 -translate-y-[100%]">
-               <input type="range"  />
+              <div className="bg-black/50 w-[100px] px-2 py-1 absolute rounded-lg translate-x-1/2 -translate-y-full">
+               
+                <Slider
+        size="small"
+        defaultValue={70}
+        aria-label="Small"
+        // valueLabelDisplay="auto"
+        value={range}
+        onChange={(e)=>setRange(e.target.value)} 
+        max={140} 
+        min={100}
+      />
+               
+               {/* <input  type="range"  /> */}
               </div>
-                </div>      
+                </div>
+
+                             <img style={{
+                                scale : range / 80
+                             }} src={imagePreview} className='aspect-square  w-full object-cover'/>
+
                     </>
                 )             
         : (
