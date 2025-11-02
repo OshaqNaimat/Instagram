@@ -11,7 +11,7 @@ import { FiBookmark } from 'react-icons/fi';
 const Posts = () => {
   return (
     <>
-    <div className="container rounded-md shadow-lg w-[80%] mt-10 mx-auto relative select-none">
+    <div className="container rounded-md shadow-lg w-[80%] mt-10 mx-auto relative select-none overflow-hidden">
       <div className="flex justify-between p-2 items-center">
         <div className="flex p-2 gap-2 items-center">
           <img className='w-[35px] h-[35px] cursor-pointer' 
@@ -62,6 +62,12 @@ const Posts = () => {
                   <p className='text-gray p-2 '> <span className='font-semibold mx-1'>Username</span>
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed, quos.
                   </p>
+                       <div className="flex items-cneter p-2 rounded-md">
+
+                  <input type="text" placeholder='Add a comment...' 
+                  className='outline-0 w-full  rounded-md' />
+                  <p className='font-semibold cursor-pointer'>Post</p>
+                  </div>
     </div>
     
     </>
