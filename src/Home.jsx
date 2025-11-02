@@ -19,7 +19,7 @@ const Home = () => {
         </div>
 
         {/* Followers */}
-        <div className="hidden lg:block lg:col-span-1">
+        <div className="hidden lg:block lg:col-span-1 m-3">
           <Followers />
         </div>
 

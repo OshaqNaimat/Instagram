@@ -18,7 +18,7 @@ const Sidebar = ({ isMobile }) => {
 
   return (
     <div
-      className={`flex flex-col p-5 select-none 
+      className={`flex flex-col p-5 select-none xl:fixed left-0 md:fixed bottom-0 font-semibold
       ${isMobile ? 'flex-row justify-around w-full p-2' : 'min-h-screen w-max border-r border-gray-500'}`}
     >
       {/* ✅ Instagram image hidden on mobile */}
