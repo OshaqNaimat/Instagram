@@ -1,11 +1,13 @@
 import React from 'react'
-import Sidebar from './components/Sidebar'
-import Posts from './components/Posts'
-import Followers from './components/Followers'
+import Sidebar from '../components/Sidebar'
+import Posts from '../components/Posts'
+import Followers from '../components/Followers'
+import PostModal from '../components/PostModal'
 
 const Home = () => {
   return (
     <>
+    <PostModal/>
       <div className="grid grid-cols-4 min-h-screen">
 
         {/* Sidebar */}
