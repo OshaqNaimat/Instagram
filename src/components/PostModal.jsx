@@ -15,8 +15,8 @@ const PostModal = () => {
     }
   return (
     <>
-    <div className="bg-black/50 min-h-screen fixed top-0 w-full z-5 flex justify-center items-center">
-        <div className="xl:w-1/3 md:w-1/2 w-[45%] rounded-3xl relative overflow-hidden  bg-white flex-col justify-center items-center ">
+    <div  onClick={()=>setZoomIn(false)} className="bg-black/50 min-h-screen fixed top-0 w-full z-5 flex justify-center items-center">
+        <div onClick={(e)=>e.stopPropagation()} className="xl:w-1/3 md:w-1/2 w-[45%] rounded-3xl relative overflow-hidden  bg-white flex-col justify-center items-center ">
             { imagePreview ? 
                 (
                     <>
@@ -27,13 +27,14 @@ const PostModal = () => {
                     </div>
                 <div onClick={()=>setZoomIn(true)} className={`bg-black/50 h-7 w-7 flex items-center justify-center 
                 absolute bottom-3 left-3 z-[400] rounded-full ${zoomin ? 'bg-white text-black' : 'bg-black text-white'}`}>
-              <BsZoomIn />
+              <BsZoomIn/>
 
-              <div className="bg-black/50 w-[100px] px-2 py-1 absolute rounded-lg translate-x-1/2 -translate-y-full">
+              <div className={`bg-black/50 duration-300 w-[100px] translate-x-1/2  ${zoomin ? '-translate-y-full opacity-100'  : 'translate-y-[80%] opacity-0'} px-2 py-1 absolute
+               rounded-lg  `}>
                
                 <Slider
         size="small"
-        defaultValue={70}
+        defaultValue={70}   
         aria-label="Small"
         // valueLabelDisplay="auto"
         value={range}
