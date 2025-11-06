@@ -3,6 +3,8 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import { BsZoomIn } from "react-icons/bs";
 import Slider from '@mui/material/Slider';
 import { IoCloseSharp } from 'react-icons/io5';
+import ImageFilter from 'react-image-filter';
+
 
 const PostModal = () => {
      const [imagePreview,setImagePreview] = useState(null)
@@ -63,11 +65,18 @@ const PostModal = () => {
                 </div>
               </>}
                 <div className="">
-
-               <img style={{  
+                  <ImageFilter
+                   image={imagePreview}
+                  style={{  
+                 scale : range / 80,
+                 zIndex : 0,
+                 filter: filters[selectedFilter]
+                }} className={`aspect-square  ${thirdScreen ? 'w-[55%] h-[360px]' : 'w-full'} object-cover`}
+      />
+               {/* <img style={{  
                  scale : range / 80,
                  zIndex : 0
-                }} src={imagePreview} className={`aspect-square  ${thirdScreen ? 'w-[55%] h-[360px]' : 'w-full'} object-cover`}/>
+                }} src={imagePreview} className={`aspect-square  ${thirdScreen ? 'w-[55%] h-[360px]' : 'w-full'} object-cover`}/> */}
                 <div className={`bg-white ${thirdScreen ? 'w-[45%]' : 'w-0'}`}></div>
                 </div>
                     </>
