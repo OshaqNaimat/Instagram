@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { BsZoomIn } from "react-icons/bs";
 import Slider from '@mui/material/Slider';
+import { IoCloseSharp } from 'react-icons/io5';
 
 const PostModal = () => {
      const [imagePreview,setImagePreview] = useState(null)
@@ -15,12 +16,19 @@ const PostModal = () => {
     }
   return (
     <>
+   
+
     <div  onClick={()=>setZoomIn(false)} className="bg-black/50 min-h-screen fixed top-0 w-full z-5 flex justify-center items-center">
-        <div onClick={(e)=>e.stopPropagation()} className="xl:w-1/3 md:w-1/2 w-[45%] rounded-3xl relative overflow-hidden  bg-white flex-col justify-center items-center ">
+        <div className="fixed right-4 top-4">
+    <IoCloseSharp size={30} className='text-white cursor-pointer' />
+    </div>
+        <div onClick={(e)=>e.stopPropagation()} className="xl:w-1/3 md:w-1/2 w-[45%] rounded-3xl 
+        relative overflow-hidden  bg-white flex-col justify-center 
+        items-center ">
             { imagePreview ? 
                 (
                     <>
-                    <div className="flex justify-between items-center w-full p-1">
+                    <div className="flex justify-between items-center w-full p-1 ">
                     <FaArrowLeftLong size={20} className='cursor-pointer'/>
               <h3 className='font-semibold text-center p-2'>Create a post</h3>
                       <p className='cursor-pointer text-purple-600'>Next</p>
@@ -46,15 +54,14 @@ const PostModal = () => {
                {/* <input  type="range"  /> */}
               </div>
                 </div>
-
-                             <img style={{
-                                scale : range / 80
-                             }} src={imagePreview} className='aspect-square  w-full object-cover'/>
-
+               <img style={{  
+                   scale : range / 80
+                }} src={imagePreview} className='aspect-square  w-full  object-cover'/>
                     </>
                 )             
         : (
             <>
+            
               <h3 className='font-semibold text-center p-2'>Create a post</h3>
          <hr />
          <img width={220} className='m-auto' src="https://i.etsystatic.com/34485599/r/il/dee909/5140040715/il_340x270.5140040715_7bjs.jpg" alt="" />

@@ -15,6 +15,7 @@ const Sidebar = ({ isMobile }) => {
   const filteredItems = isMobile
     ? sidebarItems.filter((item) => mobileVisibleTitles.includes(item.title))
     : sidebarItems;
+    
 
   return (
     <div
@@ -38,11 +39,13 @@ const Sidebar = ({ isMobile }) => {
             ${isMobile && '!my-0'}`}
           >
             {item.icon}
+          
 
             {/* ✅ show text only on large screens */}
             <span className="hidden lg:block">{item.title}</span>
           </li>
         ))}
+        
       </ul>
     </div>
   )
