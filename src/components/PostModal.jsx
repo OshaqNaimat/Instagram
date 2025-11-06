@@ -12,7 +12,6 @@ const PostModal = () => {
      const [zoomin,setZoomIn] = useState(false)
      const [range,setRange] = useState(100)
      const [thirdScreen,setThirdScreen] = useState(false)
-     const [selectedFilter, setSelectedFilter] = useState("none");
       
      const handleImageViewer = (e)=>{
         let post = e.target.files[0]
@@ -67,11 +66,12 @@ const PostModal = () => {
               </>}
                 <div className="">
                   <ImageFilter
+                  filters={filters.original}
                    image={imagePreview}
                   style={{  
                  scale : range / 80,
                  zIndex : 0,
-                 filter: filters[selectedFilter]
+                 
                 }} className={`aspect-square  ${thirdScreen ? 'w-[55%] h-[360px]' : 'w-full'} object-cover`}
       />
                {/* <img style={{  
@@ -81,7 +81,7 @@ const PostModal = () => {
                 <div className={`bg-white ${thirdScreen ? 'w-[45%]' : 'w-0'}`}>
                   <div className="grid xl:grid-cols-3 lg:grid-cols-2">
                     {Object.keys(filters).map((item,index)=>{
-                      return <>
+                      return <div key={index}>
                          <ImageFilter
                          image={'https://w0.peakpx.com/wallpaper/220/131/HD-wallpaper-air-balloon-air-lui-air-balloon-all-colors-amazing-background-balloon-blue-colorful-colors-cool-distance-fly-fly-balloon-flying-flying-baloon-green-landscape-look-nature-orange.jpg'}
                           filter={filters[item]}
@@ -90,7 +90,7 @@ const PostModal = () => {
                         <h2 className='text-sm font-semibold'>
                           {item}
                         </h2>
-                      </>
+                      </div>
                     })}
                   </div>
                 </div>
