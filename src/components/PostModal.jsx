@@ -32,7 +32,10 @@ const PostModal = () => {
                 (
                     <>
                     <div className="flex justify-between items-center w-full p-2 absolute top-0 left-0 z-50 bg-white">
-                    <FaArrowLeftLong onClick={()=>setImagePreview(null)} size={20} className='cursor-pointer'/>
+                    <FaArrowLeftLong onClick={
+                      thirdScreen ? ()=>setThirdScreen(false) : ()=>setImagePreview(null)
+                    }
+                     size={20} className='cursor-pointer'/>
               <h3 className='font-semibold text-center p-2'>Create a post</h3>
                       <p onClick={()=>setThirdScreen(true)} className='cursor-pointer text-purple-600'>Next</p>
                     </div>
@@ -64,8 +67,8 @@ const PostModal = () => {
                <img style={{  
                  scale : range / 80,
                  zIndex : 0
-                }} src={imagePreview} className={`aspect-square ${thirdScreen ? 'w-[55%] ' : 'w-full'} object-cover`}/>
-                <div className="w-[45%] bg-white "></div>
+                }} src={imagePreview} className={`aspect-square  ${thirdScreen ? 'w-[55%] h-[360px]' : 'w-full'} object-cover`}/>
+                <div className={`bg-white ${thirdScreen ? 'w-[45%]' : 'w-0'}`}></div>
                 </div>
                     </>
                 )             
