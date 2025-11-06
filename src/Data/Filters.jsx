@@ -1,19 +1,81 @@
 export const filters = {
-  none: "none",
-  aden: "brightness(120%) saturate(85%) hue-rotate(20deg)",
-  clarendon: "contrast(130%) saturate(112%) brightness(110%)",
-  crema: "contrast(90%) saturate(85%) brightness(115%) sepia(12%)",
-  gingham: "brightness(105%) hue-rotate(-10deg) contrast(100%)",
-  juno: "contrast(120%) saturate(160%) brightness(100%)",
-  lark: "brightness(110%) saturate(130%)",
-  ludwig: "contrast(110%) brightness(95%) saturate(105%) sepia(5%)",
-  moon: "grayscale(100%) contrast(110%) brightness(90%)",
-  perpetua: "brightness(115%) hue-rotate(10deg)",
-  reyes: "brightness(110%) contrast(85%) sepia(22%)",
-  slumber: "brightness(110%) saturate(85%) sepia(20%)",
-  loFi: "contrast(140%) saturate(130%)",
-  toaster: "sepia(40%) contrast(110%) brightness(110%)",
-  hudson: "brightness(110%) contrast(95%) hue-rotate(15deg)",
-  willow: "grayscale(50%) brightness(110%) sepia(10%)",
-  xpro: "contrast(125%) saturate(120%) hue-rotate(10deg)",
+  // Teal & Orange, cinematic blockbuster look
+  tealOrange: [
+    1.2, -0.1, 0.2, 0, 0,
+    -0.05, 1.0, 0.05, 0, 0,
+    -0.2, 0.15, 1.3, 0, 0,
+    0, 0, 0, 1, 0
+  ],
+
+  // Soft creamy Instagram look (Lark style)
+  lark: [
+    1.05, 0.05, 0, 0, 10,
+    0, 1.03, 0, 0, 5,
+    0, 0, 0.95, 0, 0,
+    0, 0, 0, 1, 0
+  ],
+
+  // Strong blue shadows, bright highlights (Clarendon style)
+  clarendon: [
+    1.1, 0, 0, 0, 10,
+    0, 1.05, 0, 0, 0,
+    0, 0, 1.25, 0, -10,
+    0, 0, 0, 1, 0
+  ],
+
+  // Warm sunset tone
+  valencia: [
+    1.08, 0.05, 0.05, 0, 10,
+    0.02, 1.05, 0, 0, 5,
+    0, 0.05, 0.9, 0, 0,
+    0, 0, 0, 1, 0
+  ],
+
+  // Vintage magazine look (Juno style)
+  juno: [
+    1.15, 0.05, -0.05, 0, 5,
+    -0.05, 1.05, 0.05, 0, 5,
+    0.05, -0.05, 1.1, 0, -5,
+    0, 0, 0, 1, 0
+  ],
+
+  // High contrast, low saturation film look
+  fadedFilm: [
+    1.1, 0, 0, 0, -15,
+    0, 1.1, 0, 0, -15,
+    0, 0, 1.1, 0, -15,
+    0, 0, 0, 1, 0
+  ],
+
+  // Aqua futuristic cyberpunk neon look
+  cyberPunk: [
+    0.9, -0.2, 0.5, 0, 20,
+    -0.1, 0.8, 0.4, 0, -10,
+    0.2, 0.5, 1.4, 0, -10,
+    0, 0, 0, 1, 0
+  ],
+
+  // Black & white with high contrast
+  noir: [
+    0.6, 0.6, 0.6, 0, -20,
+    0.6, 0.6, 0.6, 0, -20,
+    0.6, 0.6, 0.6, 0, -20,
+    0, 0, 0, 1, 0
+  ],
+
+  // Old retro brownish look
+  oldFilm: [
+    1.1, 0.3, 0.0, 0, -10,
+    0.1, 1.0, 0.0, 0, -10,
+    0.1, 0.3, 0.9, 0, -10,
+    0, 0, 0, 1, 0
+  ],
+
+  // Soft glowing beauty filter
+  glam: [
+    1.2, 0.05, 0.05, 0, 5,
+    0.05, 1.15, 0.05, 0, 5,
+    0.05, 0.05, 1.1, 0, 5,
+    0, 0, 0, 1, 0
+  ]
 };
