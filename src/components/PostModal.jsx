@@ -16,7 +16,7 @@ const PostModal = () => {
     }
   return (
     <>
-   
+    
 
     <div  onClick={()=>setZoomIn(false)} className="bg-black/50 min-h-screen fixed top-0 w-full z-5 flex justify-center items-center">
         <div className="fixed right-4 top-4">
@@ -28,7 +28,7 @@ const PostModal = () => {
             { imagePreview ? 
                 (
                     <>
-                    <div className="flex justify-between items-center w-full p-1 ">
+                    <div className="flex justify-between items-center w-full p-1 absolute top-0 left-0 z-50 bg-white">
                     <FaArrowLeftLong size={20} className='cursor-pointer'/>
               <h3 className='font-semibold text-center p-2'>Create a post</h3>
                       <p className='cursor-pointer text-purple-600'>Next</p>
@@ -55,7 +55,8 @@ const PostModal = () => {
               </div>
                 </div>
                <img style={{  
-                   scale : range / 80
+                   scale : range / 80,
+                   zIndex : 0
                 }} src={imagePreview} className='aspect-square  w-full  object-cover'/>
                     </>
                 )             
@@ -66,7 +67,7 @@ const PostModal = () => {
          <hr />
          <img width={220} className='m-auto' src="https://i.etsystatic.com/34485599/r/il/dee909/5140040715/il_340x270.5140040715_7bjs.jpg" alt="" />
           <p className='font-semibold text-center'>Drag photos and videos here</p>
-          <input onClick={handleImageViewer} type="file" name='file' id='file' hidden />
+          <input onChange={handleImageViewer} type='file' name='file' id='file' hidden />
           <label htmlFor='file' className='bg-blue-500 text-white text-center w-[50%] my-4 rounded-md cursor-pointer hover:bg-blue-600 mx-auto block '>Select from  computer</label>
            
             </>
