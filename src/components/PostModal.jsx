@@ -43,7 +43,7 @@ const PostModal = () => {
                     </div>
               {thirdScreen ? '' : <>
                 <div onClick={()=>setZoomIn(true)} className={`bg-black/50 h-7 w-7 flex items-center justify-center 
-                absolute bottom-3 left-3 z-[400] rounded-full ${zoomin ? 'bg-white text-black' : 'bg-black text-white'}`}>
+                absolute bottom-3 left-3 z-400 rounded-full ${zoomin ? 'bg-white text-black' : 'bg-black text-white'}`}>
               <BsZoomIn />
 
               <div className={`bg-black/50 duration-300 w-[100px] translate-x-1/2  ${zoomin ? '-translate-y-full opacity-100'  : 'translate-y-[80%] opacity-0'} px-2 py-1 absolute
@@ -64,7 +64,7 @@ const PostModal = () => {
               </div>
                 </div>
               </>}
-                <div  className="flex">
+                <div  className="flex  w-[55%]">
                   <ImageFilter
                   filters={filters.original}
                    image={imagePreview}
@@ -72,7 +72,7 @@ const PostModal = () => {
                  scale : range / 80,
                  zIndex : 0,
                  
-                }} className={`aspect-square  ${thirdScreen ? 'w-[55%] h-[360px]' : 'w-full'} object-fit-cover`}
+                }} className={`aspect-square  ${thirdScreen ? ' h-[360px]' : 'w-full'} object-fit-cover`}
       />
                {/* <img style={{  
                  scale : range / 80,
