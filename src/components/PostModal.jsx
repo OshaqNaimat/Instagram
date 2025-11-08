@@ -64,7 +64,7 @@ const PostModal = () => {
               </div>
                 </div>
               </>}
-                <div  className="">
+                <div  className="flex">
                   <ImageFilter
                   filters={filters.original}
                    image={imagePreview}
@@ -78,14 +78,14 @@ const PostModal = () => {
                  scale : range / 80,
                  zIndex : 0
                 }} src={imagePreview} className={`aspect-square  ${thirdScreen ? 'w-[55%] h-[360px]' : 'w-full'} object-cover`}/> */}
-                <div className={`bg-white ${thirdScreen ? 'w-[45%]' : 'w-0'}`}>
+                <div className={`bg-white ${thirdScreen ? 'w-[45%]' : 'w-0'} overflow-scroll h-[400px] `}>
                   <div className="grid xl:grid-cols-3 lg:grid-cols-2">
                     {Object.keys(filters).map((item,index)=>{
-                      return <div key={index}>
+                      return <div key={index} className='text-center'>
                          <ImageFilter
                          image={'https://w0.peakpx.com/wallpaper/220/131/HD-wallpaper-air-balloon-air-lui-air-balloon-all-colors-amazing-background-balloon-blue-colorful-colors-cool-distance-fly-fly-balloon-flying-flying-baloon-green-landscape-look-nature-orange.jpg'}
                           filter={filters[item]}
-                          className='w-full'
+                          className='w-full object-fit-cover '
                         />
                         <h2 className='text-sm font-semibold'>
                           {item}
