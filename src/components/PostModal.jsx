@@ -64,7 +64,7 @@ const PostModal = () => {
               </div>
                 </div>
               </>}
-                <div className="">
+                <div  className="">
                   <ImageFilter
                   filters={filters.original}
                    image={imagePreview}
@@ -72,7 +72,7 @@ const PostModal = () => {
                  scale : range / 80,
                  zIndex : 0,
                  
-                }} className={`aspect-square  ${thirdScreen ? 'w-[55%] h-[360px]' : 'w-full'} object-cover`}
+                }} className={`aspect-square  ${thirdScreen ? 'w-[55%] h-[360px]' : 'w-full'} object-fit-cover`}
       />
                {/* <img style={{  
                  scale : range / 80,
