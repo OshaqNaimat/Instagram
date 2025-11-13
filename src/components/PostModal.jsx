@@ -5,6 +5,7 @@ import Slider from "@mui/material/Slider";
 import { IoCloseSharp } from "react-icons/io5";
 import ImageFilter from "react-image-filter";
 import { filters } from "../Data/Filters";
+import { duration } from "@mui/material/styles";
 
 const PostModal = () => {
   const [imagePreview, setImagePreview] = useState(null);
@@ -12,6 +13,7 @@ const PostModal = () => {
   const [range, setRange] = useState(100);
   const [thirdScreen, setThirdScreen] = useState(false);
   const [editFilter, setEditFilter] = useState(filters.original);
+  const [fourthScreen, setFourthScreen] = useState(false);
 
   const handleImageViewer = (e) => {
     let post = e.target.files[0];
@@ -40,7 +42,11 @@ const PostModal = () => {
               <FaArrowLeftLong
                 onClick={
                   thirdScreen
-                    ? () => setThirdScreen(false)
+                    ? () => {
+                        setThirdScreen(false);
+                        setEditFilter(filters.original);
+                        setFourthScreen(false);
+                      }
                     : () => setImagePreview(null)
                 }
                 size={20}
@@ -48,7 +54,11 @@ const PostModal = () => {
               />
               <h3 className="font-semibold text-lg">Create a post</h3>
               <button
-                onClick={() => setThirdScreen(true)}
+                onClick={
+                  thirdScreen
+                    ? () => setFourthScreen(true)
+                    : () => setThirdScreen(true)
+                }
                 className="cursor-pointer text-purple-600 font-semibold hover:text-purple-700"
               >
                 Next
@@ -131,7 +141,11 @@ const PostModal = () => {
 
               {/* Filters Panel */}
               {thirdScreen && (
-                <div className="w-2/5 h-full bg-white border-l overflow-y-auto">
+                <div
+                  className={`w-2/5 h-full bg-white border-l overflow-y-auto ${
+                    fourthScreen ? "scale-0" : "scale-100"
+                  } duration-400`}
+                >
                   <div className="p-4">
                     <h4 className="font-semibold mb-4">Choose a filter</h4>
                     <div className="grid grid-cols-2 gap-3">
