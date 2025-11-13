@@ -137,7 +137,7 @@ const PostModal = () => {
                     <div className="grid grid-cols-2 gap-3">
                       {Object.keys(filters).map((item, index) => (
                         <div
-                          onClick={() => setEditFilter(filters(item))}
+                          onClick={() => setEditFilter(filters[item])}
                           key={index}
                           className="text-center cursor-pointer"
                         >
