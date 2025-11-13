@@ -172,9 +172,9 @@ const PostModal = () => {
                     <img
                       src="https://cdn-icons-png.flaticon.com/256/1177/1177568.png"
                       alt=""
-                      className="w[40px] h-10 rounded-full "
+                      className="w[32px] h-[32px] rounded-full "
                     />
-                    <h4 className="font-semibold ">Username</h4>
+                    <h5 className="font-semibold ">Username</h5>
                   </div>
                   <textarea
                     placeholder="Enter caption..."
