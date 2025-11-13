@@ -5,7 +5,6 @@ import Slider from "@mui/material/Slider";
 import { IoCloseSharp } from "react-icons/io5";
 import ImageFilter from "react-image-filter";
 import { filters } from "../Data/Filters";
-import { duration } from "@mui/material/styles";
 
 const PostModal = () => {
   const [imagePreview, setImagePreview] = useState(null);
@@ -23,10 +22,12 @@ const PostModal = () => {
 
   return (
     <div className="bg-black/50 min-h-screen fixed top-0 left-0 w-full z-50 flex justify-center items-center p-4">
+      {/* Close button */}
       <div className="fixed right-4 top-4 z-60">
         <IoCloseSharp size={30} className="text-white cursor-pointer" />
       </div>
 
+      {/* Main Modal */}
       <div
         onClick={(e) => e.stopPropagation()}
         className={`
@@ -35,30 +36,31 @@ const PostModal = () => {
           w-full max-w-2xl h-[500px] transition-all duration-300
         `}
       >
+        {/* If image selected */}
         {imagePreview ? (
           <>
             {/* Header */}
             <div className="flex justify-between items-center w-full p-4 absolute top-0 left-0 z-50 bg-white border-b">
               <FaArrowLeftLong
-                onClick={
-                  thirdScreen
-                    ? () => {
-                        setThirdScreen(false);
-                        setEditFilter(filters.original);
-                        setFourthScreen(false);
-                      }
-                    : () => setImagePreview(null)
-                }
+                onClick={() => {
+                  if (fourthScreen) {
+                    setFourthScreen(false);
+                  } else if (thirdScreen) {
+                    setThirdScreen(false);
+                    setEditFilter(filters.original);
+                  } else {
+                    setImagePreview(null);
+                  }
+                }}
                 size={20}
                 className="cursor-pointer"
               />
               <h3 className="font-semibold text-lg">Create a post</h3>
               <button
-                onClick={
-                  thirdScreen
-                    ? () => setFourthScreen(true)
-                    : () => setThirdScreen(true)
-                }
+                onClick={() => {
+                  if (thirdScreen && !fourthScreen) setFourthScreen(true);
+                  else if (!thirdScreen) setThirdScreen(true);
+                }}
                 className="cursor-pointer text-purple-600 font-semibold hover:text-purple-700"
               >
                 Next
@@ -67,12 +69,13 @@ const PostModal = () => {
 
             {/* Content Area */}
             <div className="flex h-full pt-16">
-              {/* Image Container */}
+              {/* Image Preview */}
               <div
                 className={`relative ${
                   thirdScreen ? "w-3/5" : "w-full"
                 } h-full overflow-hidden`}
               >
+                {/* Zoom Button */}
                 {!thirdScreen && (
                   <div className="absolute bottom-4 left-4 z-40">
                     <div
@@ -108,15 +111,9 @@ const PostModal = () => {
                         sx={{
                           color: "white",
                           width: 120,
-                          "& .MuiSlider-thumb": {
-                            backgroundColor: "white",
-                          },
-                          "& .MuiSlider-track": {
-                            backgroundColor: "white",
-                          },
-                          "& .MuiSlider-rail": {
-                            backgroundColor: "gray",
-                          },
+                          "& .MuiSlider-thumb": { backgroundColor: "white" },
+                          "& .MuiSlider-track": { backgroundColor: "white" },
+                          "& .MuiSlider-rail": { backgroundColor: "gray" },
                         }}
                       />
                     </div>
@@ -139,13 +136,9 @@ const PostModal = () => {
                 </div>
               </div>
 
-              {/* Filters Panel */}
-              {thirdScreen && (
-                <div
-                  className={`w-2/5 h-full bg-white border-l overflow-y-auto ${
-                    fourthScreen ? "scale-0" : "scale-100"
-                  } duration-400`}
-                >
+              {/* Filter Selection (3rd Screen) */}
+              {thirdScreen && !fourthScreen && (
+                <div className="w-2/5 h-full bg-white border-l overflow-y-auto transition-all duration-300">
                   <div className="p-4">
                     <h4 className="font-semibold mb-4">Choose a filter</h4>
                     <div className="grid grid-cols-2 gap-3">
@@ -169,6 +162,27 @@ const PostModal = () => {
                       ))}
                     </div>
                   </div>
+                </div>
+              )}
+
+              {/* Caption Screen (4th Screen) */}
+              {thirdScreen && fourthScreen && (
+                <div className="w-2/5 h-full bg-white border-l p-4 flex flex-col">
+                  <div className="flex gap-3 items-center mb-3">
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/256/1177/1177568.png"
+                      alt=""
+                      className="w[40px] h-10 rounded-full "
+                    />
+                    <h4 className="font-semibold ">Username</h4>
+                  </div>
+                  <textarea
+                    placeholder="Enter caption..."
+                    className="flex-1 border rounded-lg p-3 resize-none outline-none focus:ring-2 focus:ring-purple-500"
+                  />
+                  <button className="mt-4 bg-purple-600 cursor-pointer text-white rounded-lg py-2 font-semibold hover:bg-purple-700 transition">
+                    Post
+                  </button>
                 </div>
               )}
             </div>
