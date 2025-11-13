@@ -11,6 +11,7 @@ const PostModal = () => {
   const [zoomin, setZoomIn] = useState(false);
   const [range, setRange] = useState(100);
   const [thirdScreen, setThirdScreen] = useState(false);
+  const [editFilter, setEditFilter] = useState(filters.original);
 
   const handleImageViewer = (e) => {
     let post = e.target.files[0];
@@ -115,7 +116,7 @@ const PostModal = () => {
                 {/* Filtered Image */}
                 <div className="flex items-center justify-center h-full w-full bg-black">
                   <ImageFilter
-                    filter={filters.original}
+                    filter={editFilter}
                     image={imagePreview}
                     style={{
                       transform: `scale(${range / 100})`,
@@ -135,7 +136,11 @@ const PostModal = () => {
                     <h4 className="font-semibold mb-4">Choose a filter</h4>
                     <div className="grid grid-cols-2 gap-3">
                       {Object.keys(filters).map((item, index) => (
-                        <div key={index} className="text-center cursor-pointer">
+                        <div
+                          onClick={() => setEditFilter(filters(item))}
+                          key={index}
+                          className="text-center cursor-pointer"
+                        >
                           <div className="aspect-square overflow-hidden rounded-lg border-2 border-transparent hover:border-purple-500 transition-colors">
                             <ImageFilter
                               image={imagePreview}
