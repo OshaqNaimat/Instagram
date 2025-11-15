@@ -3,7 +3,7 @@ import React from "react";
 const Speoples = () => {
   return (
     <>
-      <div className="flex items-center gap-5">
+      <div className="flex items-center w-fit">
         <div className="flex flex-col items-center">
           {/* Outer Gradient Ring */}
           <div
