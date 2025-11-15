@@ -1,19 +1,18 @@
-import React, { useState } from 'react'
-import Sidebar from '../components/Sidebar'
-import Posts from '../components/Posts'
-import Followers from '../components/Followers'
-import PostModal from '../components/PostModal'
+import React, { useState } from "react";
+import Sidebar from "../components/Sidebar";
+import Posts from "../components/Posts";
+import Followers from "../components/Followers";
+import PostModal from "../components/PostModal";
 
 const Home = () => {
-  
+  const [show, setShow] = useState(false);
   return (
     <>
-    <PostModal/>
+      <PostModal show={show} setShow={setShow} />
       <div className="grid grid-cols-4 min-h-screen">
-
         {/* Sidebar */}
         <div className="hidden md:block md:col-span-1 lg:col-span-1">
-          <Sidebar isMobile={false} />
+          <Sidebar show={show} setShow={setShow} isMobile={false} />
         </div>
 
         {/* Posts */}
@@ -33,7 +32,7 @@ const Home = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

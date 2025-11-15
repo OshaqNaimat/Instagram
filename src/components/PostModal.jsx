@@ -6,7 +6,7 @@ import { IoCloseSharp } from "react-icons/io5";
 import ImageFilter from "react-image-filter";
 import { filters } from "../Data/Filters";
 
-const PostModal = () => {
+const PostModal = ({ show, setShow }) => {
   const [imagePreview, setImagePreview] = useState(null);
   const [zoomin, setZoomIn] = useState(false);
   const [range, setRange] = useState(100);
