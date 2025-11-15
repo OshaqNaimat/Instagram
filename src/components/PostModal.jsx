@@ -22,14 +22,18 @@ const PostModal = ({ show, setShow }) => {
 
   return (
     <div
-      className={`bg-black/50 min-h-screen fixed top-0 left-0 hidden 
+      className={`bg-black/50 min-h-screen fixed top-0 left-0 
         ${
           show ? "flex" : "hidden"
         } w-full z-50  justify-center items-center p-4`}
     >
       {/* Close button */}
       <div className="fixed right-4 top-4 z-60">
-        <IoCloseSharp size={30} className="text-white cursor-pointer" />
+        <IoCloseSharp
+          onClick={() => setShow(false)}
+          size={30}
+          className="text-white cursor-pointer"
+        />
       </div>
 
       {/* Main Modal */}
