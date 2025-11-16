@@ -4,11 +4,13 @@ import Posts from "../components/Posts";
 import Followers from "../components/Followers";
 import PostModal from "../components/PostModal";
 import Stories from "../components/Stories";
+import Hmessages from "../components/Hmessages";
 
 const Home = () => {
   const [show, setShow] = useState(false);
   return (
     <>
+      <Hmessages className="fixed right-5 bottom-5" />
       <PostModal show={show} setShow={setShow} />
       <div className="grid grid-cols-4 min-h-screen">
         {/* Sidebar */}
