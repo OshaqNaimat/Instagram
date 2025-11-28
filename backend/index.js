@@ -10,10 +10,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded());
+app.use("api/posts/", postRouter);
 app.use(errorHandler);
 connectDB();
 
-app.use("/api/posts", postRouter);
+// app.use("/api/posts", postRouter);
 
 app.listen(process.env.PORT, () => {
   console.log(`server is running on port ${process.env.PORT.cyan}`);

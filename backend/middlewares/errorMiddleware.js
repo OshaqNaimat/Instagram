@@ -1,4 +1,5 @@
 export const errorHandler = (err, req, res, next) => {
-  console.error(err);
-  res.send(err.message);
+  res.json({
+    error: err.message,
+  });
 };
