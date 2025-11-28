@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-
 const postSchema = mongoose.Schema(
   {
     caption: {
@@ -21,4 +20,4 @@ const postSchema = mongoose.Schema(
   }
 );
 
-export const Post = mongoose.model("post", postSchema);
+export const Post = mongoose.model("posts", postSchema);
