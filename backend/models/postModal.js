@@ -35,7 +35,7 @@ const postSchema = mongoose.Schema(
       default: "original",
     },
     image: {
-      type: Object,
+      type: String,
       required: true,
     },
   },
