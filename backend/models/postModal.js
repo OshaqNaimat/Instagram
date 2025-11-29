@@ -6,12 +6,12 @@ const postSchema = mongoose.Schema(
       required: false,
     },
     filter: {
-      type: String,
+      type: Array,
       required: false,
       default: "original",
     },
     image: {
-      type: String,
+      type: Object,
       required: true,
     },
   },
