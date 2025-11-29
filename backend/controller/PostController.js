@@ -9,10 +9,16 @@ export const addPost = async (req, res) => {
 
   // add to mongodb
 
+  // let newPost = await Post.create({
+  //   caption,
+  //   filter,
+  //   image,
+  // });
+
   let newPost = await Post.create({
     caption,
-    filter,
     image,
+    filter,
   });
 
   res.send(newPost);
